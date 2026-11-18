@@ -85,6 +85,7 @@ def most_confused(preds: np.ndarray, targets: np.ndarray, class_names: list[str]
 
 
 
+
 def compare_table(cnn_rows: list[dict], llm_rows: list[dict], llm_model: str,
                   prices: dict[str, float]) -> list[dict]:
 
@@ -105,14 +106,17 @@ def compare_table(cnn_rows: list[dict], llm_rows: list[dict], llm_model: str,
 
     successful = [row for row in llm_rows if row.get("error") is None]
 
-    llm_cost = 1000 * (
-        sum(
-            (
-                row["input_tokens"] * prices["input"]
-                + row["output_tokens"] * prices["output"]
-            ) / 1_000_000
-            for row in successful
-        ) / len(llm_rows)
+    llm_cost = (
+        1000 * (
+            sum(
+                (
+                    row["input_tokens"] * prices["input"]
+                    + row["output_tokens"] * prices["output"]
+                ) / 1_000_000
+                for row in successful
+            ) / len(successful)
+        )
+        if successful else 0.0
     )
 
     return [
@@ -131,6 +135,7 @@ def compare_table(cnn_rows: list[dict], llm_rows: list[dict], llm_model: str,
             "cost_per_1k": llm_cost
         }
     ]
+
 
 
 
