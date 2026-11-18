@@ -1,0 +1,656 @@
+{
+ "cnn": [
+  {
+   "target": "Abyssinian",
+   "label": "Abyssinian",
+   "latency_s": 0.04612042999997357
+  },
+  {
+   "target": "Abyssinian",
+   "label": "Abyssinian",
+   "latency_s": 0.01088683700004367
+  },
+  {
+   "target": "Abyssinian",
+   "label": "Abyssinian",
+   "latency_s": 0.030420356999911746
+  },
+  {
+   "target": "American Bulldog",
+   "label": "American Bulldog",
+   "latency_s": 0.007249531999946157
+  },
+  {
+   "target": "American Bulldog",
+   "label": "Boxer",
+   "latency_s": 0.008953921000056653
+  },
+  {
+   "target": "American Bulldog",
+   "label": "American Bulldog",
+   "latency_s": 0.009477104000097825
+  },
+  {
+   "target": "American Bulldog",
+   "label": "American Bulldog",
+   "latency_s": 0.011195077000024867
+  },
+  {
+   "target": "American Bulldog",
+   "label": "American Bulldog",
+   "latency_s": 0.008663181000088116
+  },
+  {
+   "target": "American Pit Bull Terrier",
+   "label": "American Pit Bull Terrier",
+   "latency_s": 0.024726747999920917
+  },
+  {
+   "target": "American Pit Bull Terrier",
+   "label": "American Pit Bull Terrier",
+   "latency_s": 0.11298179000004893
+  },
+  {
+   "target": "American Pit Bull Terrier",
+   "label": "American Bulldog",
+   "latency_s": 0.019453271999964272
+  },
+  {
+   "target": "American Pit Bull Terrier",
+   "label": "Boxer",
+   "latency_s": 0.018415727999922638
+  },
+  {
+   "target": "Basset Hound",
+   "label": "Basset Hound",
+   "latency_s": 0.028912254999909237
+  },
+  {
+   "target": "Basset Hound",
+   "label": "Basset Hound",
+   "latency_s": 0.043674214000020584
+  },
+  {
+   "target": "Basset Hound",
+   "label": "Basset Hound",
+   "latency_s": 0.01425522700003512
+  },
+  {
+   "target": "Basset Hound",
+   "label": "Basset Hound",
+   "latency_s": 0.01527505400008522
+  },
+  {
+   "target": "Basset Hound",
+   "label": "Beagle",
+   "latency_s": 0.022097958000131257
+  },
+  {
+   "target": "Basset Hound",
+   "label": "Basset Hound",
+   "latency_s": 0.01385321899988412
+  },
+  {
+   "target": "Basset Hound",
+   "label": "Basset Hound",
+   "latency_s": 0.014806735000092885
+  },
+  {
+   "target": "Beagle",
+   "label": "Beagle",
+   "latency_s": 0.025795807999884346
+  },
+  {
+   "target": "Beagle",
+   "label": "Beagle",
+   "latency_s": 0.014681654000014532
+  },
+  {
+   "target": "Beagle",
+   "label": "Beagle",
+   "latency_s": 0.009945747000074334
+  },
+  {
+   "target": "Beagle",
+   "label": "Basset Hound",
+   "latency_s": 0.011218701000188958
+  },
+  {
+   "target": "Beagle",
+   "label": "Beagle",
+   "latency_s": 0.011236643000074764
+  },
+  {
+   "target": "Beagle",
+   "label": "Beagle",
+   "latency_s": 0.017071826000119472
+  },
+  {
+   "target": "Bengal",
+   "label": "Bengal",
+   "latency_s": 0.011175735000051645
+  },
+  {
+   "target": "Bengal",
+   "label": "Bengal",
+   "latency_s": 0.012210361999905217
+  },
+  {
+   "target": "Bengal",
+   "label": "Bengal",
+   "latency_s": 0.0093363319999753
+  },
+  {
+   "target": "Bengal",
+   "label": "Bengal",
+   "latency_s": 0.010257212999931653
+  },
+  {
+   "target": "Bengal",
+   "label": "Abyssinian",
+   "latency_s": 0.031923108000000866
+  },
+  {
+   "target": "Birman",
+   "label": "Birman",
+   "latency_s": 0.013095966000037151
+  },
+  {
+   "target": "Birman",
+   "label": "Birman",
+   "latency_s": 0.010883042000159548
+  },
+  {
+   "target": "Bombay",
+   "label": "Bombay",
+   "latency_s": 0.009702463999929023
+  },
+  {
+   "target": "Bombay",
+   "label": "Bombay",
+   "latency_s": 0.011244025999985752
+  },
+  {
+   "target": "Bombay",
+   "label": "Bombay",
+   "latency_s": 0.015609025000003385
+  },
+  {
+   "target": "Bombay",
+   "label": "Bombay",
+   "latency_s": 0.01893401300003461
+  },
+  {
+   "target": "Bombay",
+   "label": "Bombay",
+   "latency_s": 0.01215978899995207
+  },
+  {
+   "target": "Boxer",
+   "label": "Boxer",
+   "latency_s": 0.013447701000131929
+  },
+  {
+   "target": "Boxer",
+   "label": "Boxer",
+   "latency_s": 0.016442809999944075
+  },
+  {
+   "target": "Boxer",
+   "label": "Boxer",
+   "latency_s": 0.012646676999793272
+  },
+  {
+   "target": "Boxer",
+   "label": "American Bulldog",
+   "latency_s": 0.011856500000021697
+  },
+  {
+   "target": "Boxer",
+   "label": "Boxer",
+   "latency_s": 0.015269546000126866
+  },
+  {
+   "target": "Boxer",
+   "label": "Boxer",
+   "latency_s": 0.011491785000089294
+  },
+  {
+   "target": "British Shorthair",
+   "label": "British Shorthair",
+   "latency_s": 0.030193724000127986
+  },
+  {
+   "target": "British Shorthair",
+   "label": "British Shorthair",
+   "latency_s": 0.010088533000043753
+  },
+  {
+   "target": "British Shorthair",
+   "label": "British Shorthair",
+   "latency_s": 0.011860100000149032
+  },
+  {
+   "target": "British Shorthair",
+   "label": "British Shorthair",
+   "latency_s": 0.01175350200014691
+  },
+  {
+   "target": "British Shorthair",
+   "label": "Abyssinian",
+   "latency_s": 0.022685406999926272
+  },
+  {
+   "target": "British Shorthair",
+   "label": "British Shorthair",
+   "latency_s": 0.010673217999965345
+  },
+  {
+   "target": "British Shorthair",
+   "label": "Abyssinian",
+   "latency_s": 0.010402078999959485
+  }
+ ],
+ "llm": [
+  {
+   "target": "Abyssinian",
+   "label": null,
+   "latency_s": 56.411,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Abyssinian",
+   "label": null,
+   "latency_s": 4.886,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Abyssinian",
+   "label": null,
+   "latency_s": 6.38,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Bulldog",
+   "label": null,
+   "latency_s": 5.115,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Bulldog",
+   "label": null,
+   "latency_s": 4.642,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Bulldog",
+   "label": null,
+   "latency_s": 33.664,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Bulldog",
+   "label": null,
+   "latency_s": 12.376,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Bulldog",
+   "label": null,
+   "latency_s": 2.149,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Pit Bull Terrier",
+   "label": null,
+   "latency_s": 2.789,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Pit Bull Terrier",
+   "label": null,
+   "latency_s": 28.186,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Pit Bull Terrier",
+   "label": null,
+   "latency_s": 87.755,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "American Pit Bull Terrier",
+   "label": null,
+   "latency_s": 5.847,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Basset Hound",
+   "label": null,
+   "latency_s": 6.372,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Basset Hound",
+   "label": null,
+   "latency_s": 30.523,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Basset Hound",
+   "label": null,
+   "latency_s": 6.137,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Basset Hound",
+   "label": null,
+   "latency_s": 4.066,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Basset Hound",
+   "label": null,
+   "latency_s": 3.503,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Basset Hound",
+   "label": null,
+   "latency_s": 13.523,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Basset Hound",
+   "label": "Basset Hound",
+   "latency_s": 123.192,
+   "input_tokens": 1127,
+   "output_tokens": 49,
+   "error": null
+  },
+  {
+   "target": "Beagle",
+   "label": null,
+   "latency_s": 229.054,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Beagle",
+   "label": null,
+   "latency_s": 3.508,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Beagle",
+   "label": null,
+   "latency_s": 4.101,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Beagle",
+   "label": null,
+   "latency_s": 0.727,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Beagle",
+   "label": null,
+   "latency_s": 0.566,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Beagle",
+   "label": null,
+   "latency_s": 0.822,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bengal",
+   "label": null,
+   "latency_s": 0.599,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bengal",
+   "label": null,
+   "latency_s": 0.581,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bengal",
+   "label": null,
+   "latency_s": 8.512,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand "
+  },
+  {
+   "target": "Bengal",
+   "label": null,
+   "latency_s": 0.61,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bengal",
+   "label": null,
+   "latency_s": 0.576,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Birman",
+   "label": null,
+   "latency_s": 0.394,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Birman",
+   "label": null,
+   "latency_s": 0.534,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bombay",
+   "label": null,
+   "latency_s": 0.603,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bombay",
+   "label": null,
+   "latency_s": 0.512,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bombay",
+   "label": null,
+   "latency_s": 0.65,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bombay",
+   "label": null,
+   "latency_s": 0.448,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Bombay",
+   "label": null,
+   "latency_s": 0.607,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Boxer",
+   "label": null,
+   "latency_s": 0.537,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Boxer",
+   "label": null,
+   "latency_s": 0.551,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Boxer",
+   "label": null,
+   "latency_s": 0.493,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Boxer",
+   "label": null,
+   "latency_s": 0.464,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Boxer",
+   "label": null,
+   "latency_s": 0.431,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "Boxer",
+   "label": null,
+   "latency_s": 0.494,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "British Shorthair",
+   "label": null,
+   "latency_s": 0.423,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "British Shorthair",
+   "label": null,
+   "latency_s": 0.627,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "British Shorthair",
+   "label": null,
+   "latency_s": 0.575,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "British Shorthair",
+   "label": null,
+   "latency_s": 0.455,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "British Shorthair",
+   "label": null,
+   "latency_s": 0.587,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "British Shorthair",
+   "label": null,
+   "latency_s": 0.733,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  },
+  {
+   "target": "British Shorthair",
+   "label": null,
+   "latency_s": 0.45,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and "
+  }
+ ]
+}

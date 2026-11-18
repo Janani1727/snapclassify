@@ -29,49 +29,79 @@ WEIGHTS_FILE = "snapclassify.pt"
 LABELS_FILE = "labels.json"
 
 
+
 def build_model(num_classes: int, pretrained: bool = True) -> nn.Module:
     """MobileNetV3-Small with every backbone (model.features) parameter frozen and a new last layer."""
-    # TODO: CRIO_TASK_MODULE_SNAP
-    # 1. model = mobilenet_v3_small(weights=MobileNet_V3_Small_Weights.IMAGENET1K_V1 if pretrained else None)
-    #    (pretrained=False gives random weights: the tests use it, so nothing is downloaded)
-    # 2. Freeze the backbone: requires_grad = False for every parameter of model.features.
-    # 3. model.classifier is the head: Linear(576, 1024), Hardswish, Dropout, Linear(1024, 1000). Keep the first
-    #    three (they stay trainable) and replace the last with nn.Linear(its in_features, num_classes).
-    # Test with: pytest tests/visible/test_train.py -k build_model
-    raise NotImplementedError("TODO build_model(): load MobileNetV3-Small, freeze the backbone, replace the last layer")
+
+    weights = MobileNet_V3_Small_Weights.IMAGENET1K_V1 if pretrained else None
+    model = mobilenet_v3_small(weights=weights)
+
+    for param in model.features.parameters():
+        param.requires_grad = False
+
+    in_features = model.classifier[3].in_features
+    model.classifier[3] = nn.Linear(in_features, num_classes)
+
+    return model
+
+
 
 
 def unfreeze_last_blocks(model: nn.Module, n: int = 2) -> None:
     """The fine-tuning phase: make the last n blocks of model.features trainable; the earlier blocks stay frozen."""
-    # TODO: CRIO_TASK_MODULE_SNAP
-    # model.features is a Sequential of 13 blocks. Set requires_grad = True for every parameter of the last n.
-    # Early blocks detect edges and textures that suit any photo; the last ones are the most ImageNet-specific,
-    # so they're the ones worth adapting to pet breeds.
-    # Test with: pytest tests/visible/test_train.py -k unfreeze
-    raise NotImplementedError("TODO unfreeze_last_blocks(): make the last n feature blocks trainable")
+
+    for block in model.features[-n:]:
+        for param in block.parameters():
+            param.requires_grad = True
+
+
 
 
 def make_optimizer(model: nn.Module, lr: float = 1e-3, backbone_factor: float = 0.1) -> torch.optim.Optimizer:
     """AdamW over the trainable parameters only: the head (model.classifier) at lr, any trainable backbone
     parameters (model.features) at lr * backbone_factor."""
-    # TODO: CRIO_TASK_MODULE_SNAP
-    # head = the classifier's parameters that require grad; backbone = the features' parameters that require grad.
-    # groups = [{"params": head, "lr": lr}], plus {"params": backbone, "lr": lr * backbone_factor} only when the
-    # backbone list isn't empty (the head-only phase has none). Return torch.optim.AdamW(groups, weight_decay=1e-4).
-    # A smaller learning rate for pretrained layers nudges them instead of overwriting what ImageNet taught them.
-    # Test with: pytest tests/visible/test_train.py -k unfreeze
-    raise NotImplementedError("TODO make_optimizer(): the head at lr, the trainable backbone at lr times backbone_factor")
+
+    head = [p for p in model.classifier.parameters() if p.requires_grad]
+    backbone = [p for p in model.features.parameters() if p.requires_grad]
+
+    groups = [{"params": head, "lr": lr}]
+
+    if backbone:
+        groups.append({"params": backbone, "lr": lr * backbone_factor})
+
+    return torch.optim.AdamW(groups, weight_decay=1e-4)
+
+
 
 
 def evaluate_epoch(model: nn.Module, loader: DataLoader, loss_fn: nn.Module, device: str = "cpu") -> tuple[float, float]:
     """(mean loss per image, accuracy) over the loader, without updating the model."""
-    # TODO: CRIO_TASK_MODULE_SNAP
-    # model.eval() (dropout off, batch norm uses its running statistics) and torch.no_grad() (no gradients kept).
-    # For each (images, labels) batch, moved to device: logits = model(images); add loss_fn(logits, labels).item()
-    # times the batch size to a total, and count the predictions (argmax over dim 1) equal to the labels.
-    # Return (total loss / number of images, correct / number of images).
-    # Test with: pytest tests/visible/test_train.py -k evaluate_epoch
-    raise NotImplementedError("TODO evaluate_epoch(): mean loss per image and accuracy, in eval mode")
+
+    model.eval()
+
+    total_loss = 0.0
+    correct = 0
+    seen = 0
+
+    with torch.no_grad():
+        for images, labels in loader:
+            images = images.to(device)
+            labels = labels.to(device)
+
+            logits = model(images)
+            loss = loss_fn(logits, labels)
+
+            batch_size = labels.size(0)
+
+            total_loss += loss.item() * batch_size
+
+            predictions = logits.argmax(dim=1)
+            correct += (predictions == labels).sum().item()
+
+            seen += batch_size
+
+    return total_loss / seen, correct / seen
+
 
 
 def _frozen_batchnorm_to_eval(model: nn.Module) -> None:

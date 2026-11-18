@@ -18,23 +18,44 @@ from torch import nn
 APP_MODEL_DIR = Path("app/model")
 
 
+
 def export_onnx(model: nn.Module, path: str | Path, image_size: int = 224, rtol: float = 1e-3,
                 atol: float = 1e-4) -> float:
-    """Write the model to path as ONNX (input "image", output "logits", any batch size) and return the largest
-    difference between ONNX Runtime's and PyTorch's logits on the same input."""
-    # TODO: CRIO_TASK_MODULE_SNAP
-    # 1. model.eval() (dropout off, batch norm frozen): the exported graph is the inference graph.
-    # 2. torch.onnx.export(model, (example,), str(path), input_names=["image"], output_names=["logits"],
-    #        dynamic_shapes=({0: torch.export.Dim("batch")},), external_data=False)
-    #    with example = torch.randn(2, 3, image_size, image_size). Dim("batch") makes dimension 0 dynamic, so the
-    #    app can send one photo and a batch job 64; external_data=False keeps the weights inside the one file.
-    # 3. Parity: a new input with a different batch size, check = torch.randn(3, 3, image_size, image_size);
-    #    expected = model(check) under torch.no_grad(); got = the output of
-    #    onnxruntime.InferenceSession(str(path), providers=["CPUExecutionProvider"]).run(None, {"image": check.numpy()})
-    # 4. The two runtimes round differently, so compare like np.allclose(got, expected, rtol=rtol, atol=atol): raise
-    #    ValueError if they aren't close; otherwise return the largest absolute difference as a float.
-    # Test with: pytest tests/visible/test_ship.py -k export
-    raise NotImplementedError("TODO export_onnx(): ONNX with a dynamic batch size, then the parity check")
+    """Write the model to path as ONNX and verify parity with PyTorch."""
+
+    model.eval()
+
+    example = torch.randn(2, 3, image_size, image_size)
+
+    torch.onnx.export(
+        model,
+        (example,),
+        str(path),
+        input_names=["image"],
+        output_names=["logits"],
+        dynamic_shapes=({0: torch.export.Dim("batch")},),
+        external_data=False
+    )
+
+    check = torch.randn(3, 3, image_size, image_size)
+
+    with torch.no_grad():
+        expected = model(check).numpy()
+
+    import onnxruntime
+
+    session = onnxruntime.InferenceSession(
+        str(path),
+        providers=["CPUExecutionProvider"]
+    )
+
+    got = session.run(None, {"image": check.numpy()})[0]
+
+    if not np.allclose(got, expected, rtol=rtol, atol=atol):
+        raise ValueError("ONNX output does not match PyTorch output")
+
+    return float(np.max(np.abs(got - expected)))
+
 
 
 def main(argv: list[str] | None = None) -> int:

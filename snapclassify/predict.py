@@ -34,34 +34,78 @@ def load_model(model_dir: str | Path = MODEL_DIR):
     return session, labels, float(config.get("threshold", 0.5))
 
 
+
 def preprocess(image: Image.Image) -> np.ndarray:
-    """A (1, 3, CROP, CROP) float32 array identical (within 1e-5) to data.eval_transform() on the same image."""
-    # TODO: CRIO_TASK_MODULE_SNAP
-    # Match torchvision's Resize(RESIZE) -> CenterCrop(CROP) -> ToTensor -> Normalize(MEAN, STD), step by step:
-    # 1. image.convert("RGB") (a PNG may have an alpha channel; a scan may be greyscale).
-    # 2. Resize so the SHORTER side is RESIZE, keeping the aspect ratio. The longer side is
-    #    int(RESIZE * long / short): int() truncates, exactly as torchvision does. Use
-    #    image.resize((new_w, new_h), Image.BILINEAR).
-    # 3. Centre crop: left = int(round((new_w - CROP) / 2)), top = int(round((new_h - CROP) / 2));
-    #    image.crop((left, top, left + CROP, top + CROP)).
-    # 4. np.asarray(...).astype(np.float32) / 255, then subtract MEAN and divide by STD per channel (float32 arrays).
-    # 5. HWC -> CHW (transpose(2, 0, 1)), then add the batch dimension: shape (1, 3, CROP, CROP).
-    # Test with: pytest tests/visible/test_ship.py -k preprocess
-    raise NotImplementedError("TODO preprocess(): the evaluation transform in PIL and NumPy")
+    """Convert an image into an ONNX-ready normalized array."""
+
+    image = image.convert("RGB")
+
+    width, height = image.size
+
+    if width < height:
+        new_w = RESIZE
+        new_h = int(RESIZE * height / width)
+    else:
+        new_h = RESIZE
+        new_w = int(RESIZE * width / height)
+
+    image = image.resize((new_w, new_h), Image.BILINEAR)
+
+    left = int(round((new_w - CROP) / 2))
+    top = int(round((new_h - CROP) / 2))
+
+    image = image.crop((left, top, left + CROP, top + CROP))
+
+    arr = np.asarray(image).astype(np.float32) / 255.0
+
+    arr = (
+        arr - np.array(MEAN, dtype=np.float32)
+    ) / np.array(STD, dtype=np.float32)
+
+    arr = arr.transpose(2, 0, 1)
+    arr = np.expand_dims(arr, axis=0)
+
+    return arr.astype(np.float32)
+
+
 
 
 def predict(image: Image.Image, session, labels: list[str], threshold: float = 0.5, k: int = 3) -> dict:
     """{"suggestion": the top breed, or None when not sure; "not_sure": bool;
         "top": [{"breed", "confidence"}, ...] (k of them, most confident first)}"""
-    # TODO: CRIO_TASK_MODULE_SNAP
-    # 1. logits = session.run(None, {"image": preprocess(image)})[0][0]  (one row: a score per breed)
-    # 2. Softmax, computed stably: subtract the largest logit before np.exp, then divide by the sum.
-    # 3. The k most confident breeds, highest first (np.argsort(-probs)[:k]), as
-    #    {"breed": labels[i], "confidence": float(probs[i])}.
-    # 4. not_sure = bool(the top confidence < threshold), a Python bool like the float() confidences; suggestion =
-    #    the top breed, or None when not sure. The top k are returned either way: the volunteer can still pick.
-    # Test with: pytest tests/visible/test_ship.py -k predict
-    raise NotImplementedError("TODO predict(): softmax, the top k, and not sure below the threshold")
+
+    # 1. Get model predictions (logits)
+    logits = session.run(None, {"image": preprocess(image)})[0][0]
+
+    # 2. Convert logits into probabilities using stable softmax
+    shifted_logits = logits - np.max(logits)
+    exp_logits = np.exp(shifted_logits)
+    probs = exp_logits / np.sum(exp_logits)
+
+    # 3. Get the indices of the top k predictions
+    top_indices = np.argsort(-probs)[:k]
+
+    # 4. Build the top k results
+    top = [
+        {
+            "breed": labels[i],
+            "confidence": float(probs[i])
+        }
+        for i in top_indices
+    ]
+
+    # 5. Check confidence threshold
+    not_sure = bool(top[0]["confidence"] < threshold)
+
+    # 6. Return the result
+    suggestion = None if not_sure else top[0]["breed"]
+
+    return {
+        "suggestion": suggestion,
+        "not_sure": not_sure,
+        "top": top
+    }
+
 
 
 def main(argv: list[str] | None = None) -> int:
